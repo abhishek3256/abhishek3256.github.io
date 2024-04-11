@@ -1,0 +1,12 @@
+# node_modules added to .gitignore
+
+# Client Side
+client/node_modules
+client/Portfolio
+client/.vite
+
+# Server Side
+server/node_modules
+server/.env
+server/Build
+server/.Cache
