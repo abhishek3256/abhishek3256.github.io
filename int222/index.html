@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <div id="output"></div>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
+<script src="home.precompiled.js"></script>
+<script src="nav.precompiled.js"></script>
+<script>
+var homeTemplate = Handlebars.templates.home;
+var navTemplate = Handlebars.templates.nav;
+document.getElementById('output').innerHTML = homeTemplate(yourData);
+</script>
+
+</body>
+</html>
