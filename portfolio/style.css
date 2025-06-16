@@ -1,0 +1,36 @@
+body {
+      margin: 0;
+      padding: 0;
+    }    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: violet;
+      padding: 50px 20px;
+    }
+    .navbar .name {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
+    }
+      .navbar .nav{
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+     .navbar .nav li a {
+      text-decoration: none;
+      color: white;
+      font-size: 1em;
+      transition: color 0.2s;
+    }
+    .navbar .nav li a:hover {
+      color: #a11111;
+    }
+    .navbar .name:hover {
+      color: #14ea31;
+    }
