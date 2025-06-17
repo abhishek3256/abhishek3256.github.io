@@ -28,16 +28,50 @@
 }
 .login-div{
     background-color: aqua;
+    overflow: auto;
+    height: 100hv;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    width:20%;
   
     
 }
 .register-div{
     background-color: aqua;
+    overflow: auto;
+    height: 100hv;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    width:20%;
+    margin-left: 20px;
     
     
 }
 .home-div{
     background-color: aqua;
-   ;
+    overflow: auto;
+    height: 100hv;
+    align-items: center;
+    font-size: 20px;
+
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    width:20%;
     
 }
