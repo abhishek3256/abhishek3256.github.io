@@ -1,14 +1,12 @@
 .container {
     display: flex;
     justify-content: center;
-    background-color: blue;
     padding: 20px;
     border: 2px solid black;
     border-radius: 10px;
-    flex-wrap: wrap;
     gap: 10px;
-    min-height: 100vh;
-    box-sizing: border-box;
+    min-height: 10vh;
+    
     
 
 
@@ -20,9 +18,7 @@
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
-    background-color: blue;
-    color: white;
-    flex: 1 1 200px;
+    color: rgb(227, 18, 18);
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 

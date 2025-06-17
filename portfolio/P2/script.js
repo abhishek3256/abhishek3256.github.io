@@ -1,3 +1,7 @@
+
+
+
+
 const loginForm = () => {
     const str = `<div>
     <h3>Login Form</h3>
