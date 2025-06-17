@@ -6,6 +6,7 @@
     border-radius: 10px;
     gap: 10px;
     min-height: 10vh;
+    background-color: rgb(136, 183, 233);
     
     
 
@@ -23,4 +24,20 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
 
+
+}
+.login-div{
+    background-color: aqua;
+  
+    
+}
+.register-div{
+    background-color: aqua;
+    
+    
+}
+.home-div{
+    background-color: aqua;
+   ;
+    
 }
