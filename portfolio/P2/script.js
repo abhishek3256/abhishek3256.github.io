@@ -28,19 +28,18 @@ const loginForm = () => {
     `;
   root.innerHTML = str + "</div>";
 };
-const showregisteredUsers = () => {
-    let str = "<h3>Registered Users</h3>";
-    if (users.length === 0) {
-        str += "<p>No users registered yet.</p>";
-    } else {
-        str += "<ul>";
-        users.forEach((user) => {
-        str += `<li>${user.name} (${user.email})</li>`;
-        });
-        str += "</ul>";
+const renderUserList = () => {
+    let x= "<h4>Registered Users:</h4>";
+    if(users.length==0){
+        return "<p>No Users Registered</p>";
+
     }
-    root.innerHTML = str + "<button onclick='loginForm()'>Back to Login</button>";
-    }
+    users.forEach(user => {
+        x += `<p>${user.name} | ${user.email} | ${user.pass}</p>`;
+    });
+    
+    return x;
+};
 
 const saveUser = () => {
   let name = document.getElementById("txtName").value;
