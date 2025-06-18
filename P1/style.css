@@ -1,99 +1,40 @@
-.sign-button{
-    background-color: red;
-    opacity: 0.6;
-    border: 2px solid black;
-    border-radius: 5px;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, opacity 0.3s;
-}
 
-.sign-button:hover {
-    opacity: 1;
-    background-color: darkred;
-}
-
-.form-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+    
 }
 
-.form-box {
-    background-color: white;
-    padding: 30px;
+.container div {
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
+
 }
 
-.form-box h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.form-box input {
+.container input,button {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
     box-sizing: border-box;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #45a049;
-}
-
-.close-btn {
-    padding: 8px 16px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 15px;
-    transition: background-color 0.3s;
-}
-
-.close-btn:hover {
-    background-color: #da190b;
-}
-
-.register-link, .login-link {
-    margin-top: 15px;
-    color: #666;
-}
-
-.register-link a, .login-link a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-.register-link a:hover, .login-link a:hover {
-    text-decoration: underline;
+    transition: border-color 0.3s;
+    
 }

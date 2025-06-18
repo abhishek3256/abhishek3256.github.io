@@ -1,101 +1,99 @@
-// Store users in localStorage
-let users = JSON.parse(localStorage.getItem('users')) || [];
+let users = [];
+let user = {};
 
-function showSignInForm() {
-    document.getElementById('signInForm').style.display = 'flex';
-    document.getElementById('signUpForm').style.display = 'none';
-}
+const validateUser = () => {
+  let email = document.getElementById("txtEmail").value;
+  let pass = document.getElementById("txtPass").value;
+  const found = users.find(
+    (value) => value.email === email && value.pass === pass
+  );
+  if (found) {
+    showHome();
+  } else {
+    document.getElementById("errorTxt").innerHTML = "Access Denied";
+  }
+};
 
-function showSignUpForm() {
-    document.getElementById('signUpForm').style.display = 'flex';
-    document.getElementById('signInForm').style.display = 'none';
-}
+const renderUserList = () => {
+   
+    let x= "<h4>Registered Users:</h4>";
+    if(users.length==0){
+        return "<p>No Users Registered</p>";
 
-function hideForms() {
-    document.getElementById('signInForm').style.display = 'none';
-    document.getElementById('signUpForm').style.display = 'none';
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.sign-button').addEventListener('click', showSignInForm);
-    
-    document.querySelectorAll('.close-btn').forEach(button => {
-        button.addEventListener('click', hideForms);
+    }
+    users.forEach(user => {
+        x += `<p>${user.name} | ${user.email} | ${user.pass} | ${user.balance}</p>`;
     });
     
-    document.querySelector('.register-link a').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSignUpForm();
-    });
-    
-    document.querySelector('.login-link a').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSignInForm();
-    });
-    
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('form-container')) {
-            hideForms();
-        }
-    });
+    return x;
+};
 
-    // Sign In form submission
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
-        
-        // Check if user exists
-        const user = users.find(user => user.email === email);
-        
-        if (!user) {
-            alert('User not registered! Please sign up first.');
-            return;
-        }
-        
-        // Check password
-        if (user.password !== password) {
-            alert('Incorrect password! Please try again.');
-            return;
-        }
-        
-        alert('Login successful! Welcome back!');
-        hideForms();
-        document.getElementById('loginForm').reset();
-    });
+const loginForm = () => {
+  const str = `
+    <div>
+    <div>
+    <h3>Login Form</h3>
+    <p id='errorTxt'></p>
+    <p><input type='text' id='txtEmail' placeholder='Enter Email'></p>
+    <p><input type='password' id='txtPass' placeholder='Enter Password'></p>
+    <p id='errorTxt'></p>
+    <p><input type='checkbox' id='chkRemember'> Remember Me</p>
+    <p id='errorTxt'></p>
+    <p><input type='checkbox' id='chkAgree'> I agree to the terms and conditions</p>
+    <p id='errorTxt'></p>
+    <p><button onclick='validateUser()'>Submit</button></p>
+    <p><button onclick='registerForm()'>Create Account</button></p>
+    </div>
+    <div>
+     ${renderUserList()}
+    </div>
+    </div>
+    `;
+  root.innerHTML = str;
+};
 
-    // Sign Up form submission
-    document.getElementById('registerForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const email = document.getElementById('registerEmail').value;
-        const password = document.getElementById('registerPassword').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
-        
-        // Check if passwords match
-        if (password !== confirmPassword) {
-            alert('Passwords do not match!');
-            return;
-        }
-        
-        // Check if user already exists
-        if (users.find(user => user.email === email)) {
-            alert('User already exists! Please sign in instead.');
-            return;
-        }
-        
-        // Create new user
-        const newUser = {
-            email: email,
-            password: password
-        };
-        
-        users.push(newUser);
-        localStorage.setItem('users', JSON.stringify(users));
-        
-        alert('Registration successful! Please sign in.');
-        showSignInForm();
-        document.getElementById('registerForm').reset();
-    });
-}); 
+const saveUser = () => {
+  let name = document.getElementById("txtName").value;
+  let email = document.getElementById("txtEmail").value;
+  let pass = document.getElementById("txtPass").value;
+  users.push({
+    name,
+    email,
+    pass,
+    balance:1000,
+  });
+  loginForm();
+};
+
+const registerForm = () => {
+  const str = `<div>
+    <h3>Registration Form</h3>
+    <p id='errorTxt'></p>
+    <p><input type='text' id='txtName' placeholder='Enter Name'></p>
+    <p><input type='text' id='txtEmail' placeholder='Enter Email'></p>
+    <p><input type='password' id='txtPass' placeholder='Enter Password'></p>
+    <p><input type='password' id='txtConfirmPass' placeholder='Confirm Password'></p>
+    <p id='errorTxt'></p>
+    <p><input type='number' id='txtBalance' placeholder='Enter Initial Balance' value='1000'></p>
+    <p id='errorTxt'></p>
+    <p><input type='checkbox' id='chkAgree'> I agree to the terms and conditions</p>
+    <p id='errorTxt'></p>
+    
+    <p><button onclick='saveUser()'>Submit</button></p>
+    <p><button onclick='loginForm()'>Already a member? Login here...</button></p>
+    `;
+  root.innerHTML = str + "</div>";
+};
+
+const showHome = () => {
+  const str = `<div>
+    <h3>Welcome</h3>
+    <p><button onclick='loginForm()'>Logout</button></p>
+    `;
+  root.innerHTML = str + "</div>";
+};
+const root = document.getElementById("root");
+
+
+
+loginForm()
