@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    //autofocus , readonly , value , placeholder , disabled , required , maxlength , type=text, size=10,type submit, image , button ,
+    // autocomplete , spellcheck , accept , pattern , min , max , step
+    //fieldset , legend , label , datalist , optgroup , option
+    <fieldset>
+        <legend>Log In</legend>
+    <form>
+        <p><input type="text" name="name" placeholder="Enter your name" required autofocus  ></p>
+        <p> <input type="email"  placeholder="enter email" name="email" >  </input></p>
+        <p> <input type="password" placeholder="Enter passowrd" name="passowrd" required autofocus maxlength="8" ></input></p>
+        <p>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" title="Select your date of birth" placeholder="YYYY-MM-DD">
+        </p>
+        <p>
+            <input type="checkbox" checked>JavaScript  </input>
+            <input type="checkbox">Python  </input>
+            <input type="checkbox">Java  </input>
+            <input type="checkbox">C++</input>
+        </p>
+        <p>
+            <input type="radio" name="Batch"> Morning</input>
+            <input type="radio" name="Batch"> Evening</input>
+            <input type="radio" name="Batch" checked> Night</input>
+        <p><button type="submit">Submit</button></p>
+        <p>
+            <select multiple>
+                <option >BE</option>
+                <option >BTech</option>
+                <option selected>MBA</option>
+                <option >BBA</option>
+            </select>
+        </p>
+        <p><input type="file" ></input></p>
+        <p><input type="color"></p>
+        <p><input type="range" min="0" max="100" step="1" value="50"></p>
+        <p><input type="time" name="time" value="12:00"></p>
+        <p><input type="search" name="search" placeholder="Search here"></p>
+        <p><input type="tel" name="phone" placeholder="Enter your phone number"></p>
+        <p><input type="url" name="website" placeholder="Enter your website URL"></p>
+        <p><input type="number" name="quantity" min="1" max="10" step="1" value="1"></p>
+        <p><input type="image" src="https://via.placeholder.com/150" alt="Submit Image"></p>
+        <p><input type="button" value="Click Me" onclick="alert('Button Clicked!')"></p>
+        <p><input type="submit" value="Submit Form"></p>
+        <p><input type="reset" value="Reset Form"></p>
+        <p><input type="hidden" name="hiddenField" value="Hidden Value"></p>
+        <p><input type="datetime-local" name="datetime" value="2023-10-01T12:00"></p>
+        <p><input type="month" name="month" value="2023-10"></p>
+        <p><input type="week" name="week" value="2023-W40"></p>
+        <p><input type="password" name="confirmPassword" placeholder="Confirm Password" required></p>
+        <p><input type="submit" value="Submit Form"></p>
+
+        <p><input type="reset" value="Reset Form"></p>
+
+
+        <p><textarea rows="4" cols="50" placeholder="50"></textarea></p>
+        <slect>
+            <optgroup label="India">
+                <option value="option1">Delhi</option>
+                <option value="option2">Hyderabad</option>
+                <option value="option3">Mumbai</option>
+            </optgroup>
+            <optgroup label="USA">
+                <option value="option4">New York</option>
+                <option value="option5">Los Angeles</option>
+                <option value="option6">Chicago</option>
+            </optgroup>
+            <p><label for="c1">Remember me</label><input type="checkbox" id="c1"></p>
+        </slect>
+        <p><input list="country"</p>
+        <datalist id="country">
+            <option value="India">
+            <option value="USA">
+            <option value="Canada">
+            <option value="Australia">
+            <option value="Germany">
+        </datalist>
+        <p><label for="color">Choose a color:</label>
+            <input type="color" id="color" name="color" value="#ff0000">
+        </p>
+        <p><label for="file">Upload a file:</label>
+            <input type="file" id="file" name="file" accept=".jpg, .png, .pdf">
+        </p>
+        <p><label for="range">Select a range:</label>
+            <input type="range" id="range" name="range" min="0" max="100" step="1" value="50">
+        </p>
+        <p><label for="time">Select a time:</label>
+            <input type="time" id="time" name="time" value="12:00">
+        </p>
+        <p><label for="search">Search:</label>
+            <input type="search" id="search" name="search" placeholder="Search here">
+        </p>
+        <p><label for="tel">Phone:</label>
+            <input type="tel" id="tel" name="tel" placeholder="Enter your phone number">
+        </p>
+        <p><label for="url">Website:</label>
+            <input type="url" id="url" name="url" placeholder="Enter your website URL">
+        </p>
+        <p><label for="number">Quantity:</label>
+            <input type="number" id="number" name="quantity" min="1" max="10" step="1" value="1">
+        </p>
+        <p><label for="image">Upload an image:</label>
+            <input type="image" id="image" src="https://via.placeholder.com/150" alt="Submit Image">
+        </p>
+        <p><label for="button">Click Me:</label>
+            <input type="button" id="button" value="Click Me" onclick="alert('Button Clicked!')">
+        </p>
+        <p><label for="submit">Submit Form:</label>
+            <input type="submit" id="submit" value="Submit Form">
+        </p>
+        <p><label for="reset">Reset Form:</label>
+            <input type="reset" id="reset" value="Reset Form">
+        </p>
+        <p><label for="hidden">Hidden Field:</label>
+            <input type="hidden" id="hidden" name="hiddenField" value="Hidden Value">
+        </p>
+        <p><label for="datetime">Select Date and Time:</label>
+            <input type="datetime-local" id="datetime" name="datetime" value="2023-10-01T12:00">
+        </p>
+        <p><label for="month">Select Month:</label>
+            <input type="month" id="month" name="month" value="2023-10">
+        </p>
+        <p><label for="week">Select Week:</label>
+            <input type="week" id="week" name="week" value="2023-W40">
+        </p>
+        <p><label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+        </p>
+        <p><input type="submit" value="Submit Form"></p>
+        <p><input type="reset" value="Reset Form"></p>
+        <p><textarea rows="4" cols="50" placeholder="Enter your message here"></textarea></p>
+        <select>
+            <optgroup label="India">
+                <option value="option1">Delhi</option>
+                <option value="option2">Hyderabad</option>
+                <option value="option3">Mumbai</option>
+            </optgroup>
+            <optgroup label="USA">
+                <option value="option4">New York</option>
+                <option value="option5">Los Angeles</option>
+                <option value="option6">Chicago</option>
+            </optgroup>
+        </select>
+        <p><label for="c1">Remember me</label><input type="checkbox" id="c1"></p>
+        <p><input list="country" placeholder="Select a country"></p>
+        <datalist id="country">
+            <option value="India">
+            <option value="USA">
+            <option value="Canada">
+            <option value="Australia">
+            <option value="Germany">
+        </datalist>
+        <p><label for="color">Choose a color:</label>
+            <input type="color" id="color" name="color" value="#ff0000">
+        </p>
+        <p><label for="file">Upload a file:</label>
+            <input type="file" id="file" name="file" accept=".jpg, .png, .pdf">
+        </p>
+        
+
+
+
+     
+
+    </form>
+    </fieldset>
+</body>
+</html>
