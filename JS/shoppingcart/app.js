@@ -1,50 +1,85 @@
-let cart={};
-const products=[
+let cart = {};
+const products = [
   { id: 1, name: "Apple", price: 1.0 },
   { id: 2, name: "Banana", price: 0.5 },
   { id: 3, name: "Cherry", price: 2.0 },
 ];
 
+function renderProducts() {
+  const root = document.getElementById('root');
+  let html = '<h2>Products</h2>';
+  html += '<div id="product-list">';
+  products.forEach(product => {
+    html += `<div style='margin-bottom:8px;'>${product.name} ($${product.price}) <button onclick="addToCart(${product.id})">Add to Cart</button></div>`;
+  });
+  html += '</div>';
+  html += '<h2>Cart</h2>';
+  html += '<div id="cart-list"></div>';
+  html += '<button onclick="clearCart()">Clear Cart</button>';
+  root.innerHTML = html;
+  renderCart();
+}
+
+function renderCart() {
+  const cartList = document.getElementById('cart-list');
+  let html = '';
+  let hasItems = false;
+  for (let id in cart) {
+    hasItems = true;
+    const item = cart[id];
+    html += `<div>${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)} ` +
+      `<button onclick="decrement(${id})">-</button>` +
+      `<button onclick="increment(${id})">+</button>` +
+      `<button onclick="removeFromCart(${id})">Remove</button></div>`;
+  }
+  if (!hasItems) {
+    html = '<em>Cart is empty.</em>';
+  }
+  cartList.innerHTML = html;
+}
+
 function addToCart(id) {
   const product = products.find(p => p.id === id);
-  if (!product) {
-    console.log("Product not found.");
-    return;
-  }
-
+  if (!product) return;
   if (cart[id]) {
     cart[id].quantity += 1;
   } else {
     cart[id] = { ...product, quantity: 1 };
   }
-
-  console.log(`${product.name} added to the cart.`);
+  renderCart();
 }
 
-function showCart() {
-  console.log("Your cart:");
-  let isEmpty = true;
-
-  for (let id in cart) {
-    const item = cart[id];
-    console.log(`${item.name} - $${item.price} x ${item.quantity}`);
-    isEmpty = false;
-  }
-
-  if (isEmpty) {
-    console.log("Your cart is empty.");
+function increment(id) {
+  if (cart[id]) {
+    cart[id].quantity += 1;
+    renderCart();
   }
 }
 
+function decrement(id) {
+  if (cart[id]) {
+    if (cart[id].quantity > 1) {
+      cart[id].quantity -= 1;
+    } else {
+      delete cart[id];
+    }
+    renderCart();
+  }
+}
 
 function removeFromCart(id) {
   if (cart[id]) {
     delete cart[id];
-    console.log(`Product with ID ${id} removed from the cart.`);
-  } else {
-    console.log(`Product with ID ${id} not found in the cart.`);
+    renderCart();
   }
 }
+
+function clearCart() {
+  cart = {};
+  renderCart();
+}
+
+document.addEventListener('DOMContentLoaded', renderProducts);
 
 const orderValue = () => {
     let total = 0;
@@ -76,4 +111,5 @@ function checkout() {
   cart = {}; 
 }
 
+//
 //

@@ -7,3 +7,45 @@
     border-radius: 5px;
 
 }
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#product-list > div, #cart-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+#product-list > div:last-child, #cart-list > div:last-child {
+  border-bottom: none;
+}
+
+button {
+  padding: 4px 10px;
+  margin-left: 4px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #ccc;
+}
+
+#cart-list {
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #888;
+}
