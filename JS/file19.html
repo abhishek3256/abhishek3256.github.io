@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <script>
+        let user = {};
+        let users = [];
+
+        const handleChange = (key, value) => {
+            user[key] = value;
+            console.log(user);
+        };
+
+        const addUsers = () => {
+            users.push({ ...user }); 
+            console.log("All users:", users);
+        };
+    </script>
+</head>
+<body>
+    <h1>Registration Form</h1>
+
+    <p>
+        <input type="text" placeholder="Enter Name" onchange="handleChange('name', this.value)">
+    </p>
+    <p>
+        <input type="text" placeholder="Enter Email" onchange="handleChange('email', this.value)">
+    </p>
+
+    <button onclick="addUsers()">Submit</button>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React-like JS Registration</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    .form-group { margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    let user = {
+      name: '',
+      email: ''
+    };
+
+    let users = [];
+
+    const handleChange = (key, value) => {
+      user[key] = value;
+      render(); 
+    };
+
+    const handleSubmit = () => {
+      users.push({ ...user });
+      user = { name: '', email: '' }; 
+      render(); 
+    };
+
+    const render = () => {
+      const app = document.querySelector('#app');
+      app.innerHTML = `
+        <h1>Registration Form</h1>
+
+        <div class="form-group">
+          <input type="text" placeholder="Enter Name" value="${user.name}"
+            onchange="handleChange('name', this.value)">
+          <p>Name: ${user.name}</p>
+        </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Enter Email" value="${user.email}"
+            onchange="handleChange('email', this.value)">
+          <p>Email: ${user.email}</p>
+        </div>
+
+        <button onclick="handleSubmit()">Submit</button>
+
+        <h2>All Registered Users:</h2>
+        <ul>
+          ${users.map(u => `<li>${u.name} (${u.email})</li>`).join('')}
+        </ul>
+      `;
+    };
+
+    // Make functions globally accessible since we're calling them from inline HTML
+    window.handleChange = handleChange;
+    window.handleSubmit = handleSubmit;
+
+    // Initial render
+    render();
+  </script>
+</body>
+</html>
