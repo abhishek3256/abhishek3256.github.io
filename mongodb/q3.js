@@ -34,3 +34,68 @@ lpua> db.employees.find().sort({name:-1}); //ascending
 lpua> db.employees.find().sort({name:1}); //deceneding
 lpua> db.employees.find().sort({name:-1}).limit(1);
 MinKey < Null < Numbers < Strings < Objects < Arrays < BinData < ObjectId < Boolean < Date < Timestamp < Regex < MaxKey
+
+db.employees.insertMany([
+    {
+        name:"Amy",
+        email:"amy@gmail.com",
+        department:"HR",
+        salary:2000,
+        location:["NY","TX"],
+        date:Date(),
+    },
+    {
+        
+        name:"Rafael",
+        email:"rafael@gmail.com",
+        department:"Admin",
+        salary:1500,
+        location:["OH","TX"],
+        date:Date(),
+
+    },
+    
+]);
+//array of objects
+db.employees.updateOne(
+    {email:"john@gmail.com"},
+    {$set:{salary:2000}}
+);
+db.employees.updateMany(
+    {department:"IT"},
+    {$inc:{points:-1}}
+);
+db.employees.updateMany({},{
+    $rename:{points:"score"}
+});
+db.employees.updateMany({},{
+    $unset:{score:""}
+});
+db.employees.updateMany({},{
+    $push:{skills:"C++"}
+});
+db.employees.updateMany({email:"john@gmail.com"},{
+    $push:{skills:"python"}
+});
+db.employees.updateMany({email:"john@gmail.com"},{
+    $pull:{skills:"python"}
+});
+
+db.employees.updateMany({email:"john@gmail.com"},{
+    $addToSet:{skills:"python"}
+});
+db.employees.updateMany({email:"john@gmail.com"},{
+    $pop:{skills:1}
+});
+db.employees.updateMany({email:"john@gmail.com"},{
+    $pop:{skills:-1}
+});
+// push -> array
+db.employees.updateOne(
+    {email:"brian@gmail.com"},
+    {$set:{name:"Brian"}},
+    {upsert:true}
+);
+db.employees.deleteOne({
+    email:"brian@gmail.com"
+});
