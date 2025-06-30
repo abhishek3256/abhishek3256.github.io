@@ -115,3 +115,45 @@ db.students.aggregate([
     }
   }
 ]);
+db.address.insertMany([
+    {
+     studentID:ObjectId('685cdca25aac9fa3f6b71238'),
+     city:"Arizona",
+     Country:"USA"          
+    },
+    {
+        studentID:ObjectId('685cdd545aac9fa3f6b71239'),
+        city:"Pompei",
+        country:"Roman Empire"
+
+    }
+    ,
+    {
+        studentID:ObjectId('685cdd545aac9fa3f6b7123a'),
+        city:"Delhi",
+        country:"India"
+    },
+    {
+        studentID: ObjectId('685cdd545aac9fa3f6b7123b'),
+        city:"London",
+        country:"Britain"
+    }
+
+
+]);
+db.students.aggregate([
+    {$lookup:{
+        from:"address",
+        localField:"_id",
+        foreignField:"studentId",
+        as:"address"
+    },},
+    {$unwind:"$address"},
+    {$project:{name:1,"address.city":1,"address.country":1}},
+]);
+db.address.insertOne({
+   
+         studentID:ObjectId('685cdd545aac9fa3f6b71239'),
+        city:"Pompei",
+        country:"Roman Empire"
+})
